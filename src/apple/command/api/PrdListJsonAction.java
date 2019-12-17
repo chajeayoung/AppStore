@@ -1,0 +1,45 @@
+package apple.command.api;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+import apple.bean.MngrDBBean;
+import apple.bean.MngrDataBean;
+import apple.command.Action;
+
+public class PrdListJsonAction implements Action {
+
+	@Override
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		// TODO Auto-generated method stub
+		List<MngrDataBean> prdList = null;
+		int count = 0;
+		String prd_kind = request.getParameter("prd_kind");
+		
+		MngrDBBean prdProcess = MngrDBBean.getInstance();
+		
+		//kind값이 all이면 전체 상품의 수를 얻어냄
+		if(prd_kind.equals("all"))
+            count = prdProcess.getPrdCount(); 
+		else//all이 아니면 해당 카테고리의 상품수를 얻어냄
+			count = prdProcess.getPrdCount(prd_kind);
+		
+        if (count > 0){//상품이 있으면 수행
+        	//상품목록을 얻어냄
+        	prdList = prdProcess.getPrds(prd_kind);
+        }
+        
+        Gson gson = new Gson();
+		String result = gson.toJson(prdList).toString();
+        //해당 뷰에서 사용할 속성
+        request.setAttribute("count", new Integer(count));
+        request.setAttribute("prd_kind", prd_kind);
+        request.setAttribute("type", new Integer(1));
+		return result;
+	}
+
+}
