@@ -4,7 +4,6 @@
 <link rel="shortcut icon" href="#">
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="/shoppingmall/css/style.css" />
 <div id="header">
 	<div id="logo" class="box">
 		<img class="noborder" id="logo" width="50" height="50px"

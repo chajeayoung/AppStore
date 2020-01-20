@@ -3,37 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<link rel="stylesheet" href="/shoppingmall/css/style.css"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<link rel="stylesheet" href="/shoppingmall/css/style.css" />
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/shoppingmall/shop/prdcontent.js"></script>
 
-<div id="cata">
-	<ul>
-		<li><a href="/shoppingmall/list.do?prd_kind=100">Mac</a></li>
-		<li><a href="/shoppingmall/list.do?prd_kind=200">iPad</a></li>
-		<li><a href="/shoppingmall/list.do?prd_kind=300">iPhone</a></li>
-		<li><a href="/shoppingmall/list.do?prd_kind=400">TimeMarket</a></li>
-	</ul>
-</div>
-<br>
-<br>
+
 <div id="showPrd">
 	<input type="hidden" id="end_time" value="${prd.getEnd_time()}">
 	<c:if test="${prd.getEnd_time() != null}">
 		남은시간 : <span class="timer" id="timer"> </span>
 	</c:if>
-	<select id="option1" name="option1">
-					<option value="black">검정</option>
-					<option value="white">흰색</option>
-					<option value="300">iPhone</option>
-					<option value="400">Time Market</option>
-				</select>
-				<select id="option2" name="option2">
-					<option value="100">Mac</option>
-					<option value="200">iPad</option>
-
-				</select>
 
 	<table class="vhcenter">
 		<tr height="30">

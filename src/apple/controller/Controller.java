@@ -42,7 +42,6 @@ public class Controller extends HttpServlet {
 	 */
 	public Controller() {
 		super();
-		System.out.println("생성자");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -109,7 +108,7 @@ public class Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("이닛~~");
+	
 	}
 
 	/**
@@ -120,7 +119,7 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		requestPro(request, response);// 요청처리 메소드 호출
-		System.out.println("두겟햇네 ?");
+		
 	}
 
 	/**
@@ -131,7 +130,7 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		requestPro(request, response);// 요청처리 메소드 호출
-		System.out.println("두포스트햇네?");
+		
 	}
 
 	// 웹브라우저의 요청을 분석하고, 해당 로직의 처리를 할 모델 실행 및
@@ -150,13 +149,12 @@ public class Controller extends HttpServlet {
 			}
 			System.out.println("com : "+com);
 			view = com.requestPro(request, response);
-			System.out.println("view : "+view);
+			System.out.println("view : "+view);                                                                             
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("cont", view);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/layout.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/layout2.jsp");
 		dispatcher.forward(request, response);
-		System.out.println("리퀘스트프로~");
 	}
 }

@@ -19,6 +19,7 @@ $(document).ready(function() {
 			url : "/shoppingmall/loginPro.do",
 			data : query,
 			success : function(data) {
+				console.log(data);
 				var str1 = '<p id="ck">';
 				var loc = data.indexOf(str1);
 				var len = str1.length;
